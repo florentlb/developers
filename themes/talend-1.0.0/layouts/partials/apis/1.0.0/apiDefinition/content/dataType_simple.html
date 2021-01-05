@@ -1,0 +1,42 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $dataType := .dataType -}}
+
+{{ if (hasPrefix $dataType.type "#/contract/types/") -}}
+	{{ partial "apis/1.0.0/apiDefinition/content/dataType_reference" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "dataTypeReference" $dataType.type ) -}}
+{{ else if (eq $dataType.type "ALLOF") -}}
+	{{ i18n "api-type-all-of" -}}
+	{{ with $dataType.allOf -}}
+		{{ range $allOfDataType := . -}}
+			{{ partial "apis/1.0.0/apiDefinition/content/dataType_reference" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "dataTypeReference" $allOfDataType ) -}}
+		{{ end -}}
+	{{ end -}}
+{{ else if (eq $dataType.type "ANYOF") -}}
+	{{ i18n "api-type-any-of" -}}
+	{{ with $dataType.anyOf -}}
+		{{ range $anyOfDataType := . -}}
+			{{ partial "apis/1.0.0/apiDefinition/content/dataType_reference" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "dataTypeReference" $anyOfDataType ) -}}
+		{{ end -}}
+	{{ end -}}
+{{ else if (eq $dataType.type "ONEOF") -}}
+	{{ i18n "api-type-one-of" -}}
+	{{ with $dataType.oneOf -}}
+		{{ range $oneOfDataType := . -}}
+			{{ partial "apis/1.0.0/apiDefinition/content/dataType_reference" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "dataTypeReference" $oneOfDataType ) -}}
+		{{ end -}}
+	{{ end -}}
+{{ else -}}
+	{{ $dataType.type | lower -}}
+{{ end -}}

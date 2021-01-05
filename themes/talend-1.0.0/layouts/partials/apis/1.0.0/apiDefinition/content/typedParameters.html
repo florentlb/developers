@@ -1,0 +1,45 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $context := .context -}}
+{{ $label := .label -}}
+{{ $type := .type -}}
+{{ $id := .id -}}
+
+{{ with .parameters -}}
+<table{{ with $id }} id="{{ . }}"{{ end }}>
+  {{ with $label -}}<caption class="{{ $context }}__{{ $type }}">{{ . -}}</caption>{{ end -}}
+  <thead class="sr-only">
+    <tr>
+      <th scope="col">{{ i18n "api-parameter-name" -}}</th>
+      <th scope="col">{{ i18n "api-parameter-description" -}}</th>
+      <th scope="col">{{ i18n "api-parameter-type" -}}</th>
+      <th scope="col">{{ i18n "api-parameter-attributes-examples" -}}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{ range . -}}
+    {{ with cond (hasPrefix .type "#/components/") (index $itemsByJsonPath .type) . -}}{{/* Solve potential referenced component */}}
+      {{ if (eq .type "OBJECT") -}}
+{{ partial "apis/1.0.0/apiDefinition/content/typedParameter_object" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "typedParameter" .) -}}
+      {{ else if (eq .type "ARRAY") -}}
+{{ partial "apis/1.0.0/apiDefinition/content/typedParameter_array" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "typedParameter" .) -}}
+      {{ else }}
+{{ partial "apis/1.0.0/apiDefinition/content/typedParameter_simple" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "context" $context "apiDefinition" $apiDefinition "dataType" . ) -}}
+      {{ end -}}
+    {{ end -}}
+  {{ end -}}
+  </tbody>
+</table>
+{{ end -}}

@@ -1,0 +1,61 @@
+{{/*
+	Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+	This source code is available under agreement available at
+	https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+	You should have received a copy of the agreement
+	along with this program; if not, write to Talend SA
+	9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $resourcePath := .path -}}
+{{ $resourcePathVariables := .pathVariables -}}
+{{ $resourceSecuredBy := .resourceSecuredBy -}}
+{{ $id := .id -}}
+{{ $rwadefResource := .rwadefResource -}}
+
+{{ with .operation -}}
+<section id="{{ $id }}_anchor" class="operation" aria-labelledby="{{ $id }}">
+	<div class="operation__content">
+        <h3 id="{{ $id }}">{{ .Name -}}</h3>
+        <span class="operation--{{ lower .Method }} operation--default">{{ .Method -}}</span> <span class="operation__url">{{ $resourcePath -}}</span>
+		{{ with .description -}}<div class="operation__description wysiwyg">{{ replace . "# " "#### " | markdownify -}}</div>{{ end -}}
+		{{ with ( default $resourceSecuredBy .securedBy) -}}
+		<div class="definition__security definition">
+			<h4>{{ i18n "api-security" -}}</h4>
+	      	<div>
+			{{ partial "apis/1.0.0/apiDefinition/content/securedBy" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "securedBy" . "context" "operation-security") -}}
+			</div>
+	    </div>
+        {{ end -}}
+	    <div class="definition__content definition">
+			<div>
+				<h4>{{ i18n "api-request" -}}</h4>
+		{{ partial "apis/1.0.0/apiDefinition/content/typedParameters" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" "request" "type" "path-variables" "label" (i18n "path-variables") "parameters" $resourcePathVariables) -}}
+		{{ partial "apis/1.0.0/apiDefinition/content/typedParameters" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" "request" "type" "query-parameters" "label" (i18n "query-parameters") "parameters" .queryParameters) -}}
+		{{ partial "apis/1.0.0/apiDefinition/content/typedParameters" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" "request" "type" "headers" "label" (i18n "headers") "parameters" .headers) -}}
+			</div>
+		{{ partial "apis/1.0.0/apiDefinition/content/bodies" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "bodies" .bodies "context" "request") -}}
+    	</div>
+		<div class="definition__content definition">
+			<h4>{{ i18n "api-response" -}}</h4>
+		{{ $scratch := newScratch -}} {{/* used to sort by status */}}
+		{{ range $response := .Responses -}}
+			{{ $scratch.SetInMap "responsesByStatus" .status $response -}}
+		{{ end -}}
+
+		{{ range $scratch.Get "responsesByStatus" -}}
+			{{ $response := cond (isset . "reference") (index $itemsByJsonPath "reference") . -}}{{/* Solve potential referenced component */}}
+			{{ partial "apis/1.0.0/apiDefinition/content/response" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "response" $response "status" .status) -}}
+		{{ end -}}
+		</div>
+	</div>
+	<div class="operation__content-info operation__content-info--odd">
+		{{ partial "apis/1.0.0/apiDefinition/tryInTester" $rwadefResource -}}
+	</div>
+</section>
+{{ end -}}

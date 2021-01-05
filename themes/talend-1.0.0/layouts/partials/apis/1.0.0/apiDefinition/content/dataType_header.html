@@ -1,0 +1,26 @@
+{{/*
+	Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+	This source code is available under agreement available at
+	https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+	You should have received a copy of the agreement
+	along with this program; if not, write to Talend SA
+	9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $dataType := .dataType -}}
+{{ $context := .context -}}
+
+{{ if (hasPrefix $dataType.type "#/contract/types/") -}}
+	{{ partial "apis/1.0.0/apiDefinition/content/dataType_reference" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "dataTypeReference" $dataType.type ) -}}
+{{ else if (eq $dataType.type "OBJECT") -}}
+  {{ partial "apis/1.0.0/apiDefinition/content/dataType_object" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "dataType" $dataType) -}}
+{{ else if (eq $dataType.type "ARRAY") -}}
+  {{ partial "apis/1.0.0/apiDefinition/content/dataType_array" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "dataType" $dataType) -}}
+{{ else -}}
+  {{ partial "apis/1.0.0/apiDefinition/content/dataType_simple" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "dataType" $dataType ) -}}
+{{ end -}}

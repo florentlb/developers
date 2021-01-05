@@ -1,0 +1,80 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $currentPage := .currentPage -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $resources := .resources -}}
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $siblingsApiDefinitionsPages := .siblingsApiDefinitionsPages -}}
+{{ $rwadefResource := .rwadefResource -}}
+
+<div class="left-panel__wrapper">
+  <div class="api__general">
+    <h1>{{ .apiDefinition.info.name -}} </h1>
+{{ partial "apis/1.0.0/apiVersionsSelect" (dict "siblingsApiDefinitionsPages" $siblingsApiDefinitionsPages "selectedApiDefinitionPage" $currentPage "contextCssClass" "api__version") -}}
+  </div>
+  <div class="api__action">
+{{ partial "apis/1.0.0/apiDefinition/tryInTester" $rwadefResource -}}
+{{ partial "apis/1.0.0/apiDefinition/download" $resources -}}
+  </div>
+
+  <form class="search-form">
+    <label class="search-form__label" for="filter">
+      <svg class="search-form__icon" aria-hidden="true" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"></path></svg>
+      <span class="sr-only">{{ i18n "api-left-panel-filter" -}}</span>
+    </label>
+    <input class="search-form__field js-filter" id="filter" type="search" placeholder="{{ i18n "api-left-panel-filter" }}" />
+  </form>
+
+  <hr />
+
+  <nav class="api__nav" aria-label="{{ i18n "api-left-panel-api-content" }}">
+    <ul class="api-toc js-api-toc">
+{{ with $apiDefinition.Contract.unsortedElementOrder -}}
+      <li>{{ partial "partials/apis/inline/leftPanel_elementInSection" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "elements" .) -}}</li>
+{{ end -}}
+
+{{ range $key,$section := $apiDefinition.Contract.Sections -}}
+  {{ $idSection := index $idsByJsonPath (print "#/contract/sections/" $key ) -}}
+      <li>
+        <details open>
+          <summary class="api-toc__section-title"><a href="#{{ $idSection }}">{{$section.name -}}</a></summary>
+  {{ partial "partials/apis/inline/leftPanel_elementInSection" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "elements" $section.elementOrder) -}}
+        </details>
+      </li>
+{{ end -}}
+    </ul>
+  </nav>
+</div>
+
+{{ define "partials/apis/inline/leftPanel_elementInSection" -}}
+  {{ $itemsByJsonPath := .itemsByJsonPath -}}
+  {{ $idsByJsonPath := .idsByJsonPath -}}
+<ul class="api-toc__content">
+    {{ range .elements -}}
+      {{ $item := index $itemsByJsonPath . -}}
+
+      {{ if (hasPrefix . "#/contract/texts/") -}}
+        {{ $id := index $idsByJsonPath . -}}
+  <li class="api-toc__item_text"><a href="#{{ $id }}">{{ $item.Title -}}</a></li>
+     {{ else if (hasPrefix  . "#/contract/resources/") -}}
+        {{ range $key,$operation := $item.operations -}}
+         {{ $id := index $idsByJsonPath (print "#/contract/operations/" $key ) -}}
+  <li class="api-toc__item api-toc__item--request-{{ lower .method }}"><a href="#{{ $id }}">{{ $operation.name -}}</a></li>
+        {{ end -}}
+      {{ else if (hasPrefix . "#/contract/types/") -}}
+        {{ $id := index $idsByJsonPath . -}}
+  <li class="api-toc__item api-toc__item--datatype"><a href="#{{ $id }}">{{ $item.name -}}</a></li>
+    {{ end -}}
+  {{end -}}
+</ul>
+{{end -}}

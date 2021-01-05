@@ -1,0 +1,26 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $context := .context -}}
+{{ $dataType := .dataType -}}
+
+<tr class="{{ $context }}__parameter">
+	<th scope="row">{{ $dataType.name -}}</th>
+	<td class="wysiwyg">{{ replace $dataType.description "# " "#### " | markdownify -}}</td>
+	<td class="{{ $context }}__parameter-type">
+{{ partial "apis/1.0.0/apiDefinition/content/dataType_simple" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "dataType" $dataType ) -}}
+{{ if $dataType.required -}}<span class="badge badge--warn">{{ i18n "api-parameter-required" -}}</span>{{else -}}<span class="badge">{{ i18n "api-parameter-optional" -}}</span>{{ end -}}
+	</td>
+	<td class="{{ $context }}__parameter-attributes-examples">{{ partial "apis/1.0.0/apiDefinition/content/dataType_attributes_with_examples" (dict "type" $dataType "context" $context) -}}</td>
+</tr>

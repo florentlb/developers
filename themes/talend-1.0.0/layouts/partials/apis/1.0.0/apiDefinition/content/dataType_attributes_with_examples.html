@@ -1,0 +1,18 @@
+{{ $type := .type -}}
+{{ $context := .context -}}
+
+{{ partial "apis/1.0.0/apiDefinition/content/dataType_attributes" . -}}
+{{ with $type.examples -}}
+<div class="{{ $context }}__parameter-attribute-example">
+	<span class="metadata__label">{{ i18n "api-parameter-examples" (len .) -}}</span>
+  {{- if eq (len .) 1 -}}
+	<span class="badge">{{ range . -}}{{ .value -}}{{end -}}</span>
+  {{- else -}}
+	<ul class="metadata-examples">
+    {{ range . -}}
+  		<li><span class="badge">{{.value -}}</span></li>
+    {{ end -}}
+	</ul>
+  {{ end -}}
+</div>
+{{ end -}}

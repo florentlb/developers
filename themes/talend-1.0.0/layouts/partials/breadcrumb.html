@@ -1,0 +1,32 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+{{/*
+    Generates the breadcrumb for the current page.
+    It browses the list of ancestors Pages of the current page and
+    for each ancestor displays a link with the ancestor's Page permalink and title.
+*/}}
+{{ $currentPage := . -}}
+
+<nav class="breadcrumb" aria-label="{{ i18n "breadcrumb" }}">
+	<ol class="breadcrumb__list">
+		<li class="breadcrumb__item"><a href="{{ .Site.Home.Permalink }}" class="breadcrumb__element">{{ i18n "breadcrumb-home" -}}</a></li>
+{{ $url := strings.TrimPrefix "/" .RelPermalink | strings.TrimSuffix "/" -}}
+{{ range $urlSegment := split $url "/" -}}
+  {{ if ne $urlSegment "" -}}
+    {{ $.Scratch.Add "path" $urlSegment -}}
+    {{ with ($currentPage.Site.GetPage ($.Scratch.Get "path")) -}}
+    <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a {{ if eq $currentPage . }}aria-current="page" {{end}}href="{{ .Permalink }}" class="breadcrumb__element">{{ .Title -}}</a></li>
+    {{ end -}}
+    {{ $.Scratch.Add "path" "/" -}}
+  {{ end -}}
+{{ end -}}
+	</ol>
+</nav>

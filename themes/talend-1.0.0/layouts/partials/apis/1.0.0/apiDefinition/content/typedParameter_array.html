@@ -1,0 +1,40 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $itemsByJsonPath := .itemsByJsonPath -}}
+{{ $idsByJsonPath := .idsByJsonPath -}}
+{{ $apiDefinition := .apiDefinition -}}
+{{ $context := .context -}}
+{{ $typedParameter := .typedParameter -}}
+
+{{ $randomId := delimit (shuffle (split (md5 "aria-describedBy for Array property") "" )) "" -}}
+{{ $arraysAndFinalTypes := partial "partials/apis/1.0.0/apiDefinition/content/arrayType/getListOfArrayTypesAndFinalTypeAsScratch" (dict "itemsByJsonPath" $itemsByJsonPath "dataType" $typedParameter) -}}
+{{ $arrayTypes := $arraysAndFinalTypes.Get "arrays" -}}
+{{ $finalType := $arraysAndFinalTypes.Get "finalType" -}}
+<tr class="{{ $context }}__parameter">
+  <th scope="row" aria-describedby="{{ $randomId }}">{{ $typedParameter.name -}}</th>
+  <td></td>
+  <td class="{{ $context }}__parameter-type">
+  {{ partial "partials/apis/1.0.0/apiDefinition/content/arrayType/array_type_label" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "arrayTypes" $arrayTypes "finalType" $finalType) -}}
+  {{ if $typedParameter.required -}}<span class="badge badge--warn">{{ i18n "api-parameter-required" -}}</span>{{else -}}<span class="badge">{{ i18n "api-parameter-optional" -}}</span>{{ end -}}</td>
+  <td class="{{ $context }}__parameter-attributes-examples">
+{{ partial "partials/apis/1.0.0/apiDefinition/content/arrayType/arrayType_details" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "arrayTypes" $arrayTypes "finalType" $finalType "id" $randomId "showTopArrayTypeExamples" true "isArrayDataType" false)}}
+  </td>
+</tr>
+{{ with $finalType -}}
+  {{ if (eq $finalType.type "OBJECT") -}}
+    {{ with $finalType.properties }}
+<tr class="{{ $context }}__parameter--subtype">
+  <td colspan="4">{{ partial "apis/1.0.0/apiDefinition/content/typedParameters" (dict "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "context" $context "type" "properties" "parameters" $finalType.properties "id" $randomId) -}}</td>
+</tr>
+    {{ end -}}
+  {{ end -}}
+{{ end -}}
