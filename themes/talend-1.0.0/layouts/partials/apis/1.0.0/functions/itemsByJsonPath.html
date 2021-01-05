@@ -1,0 +1,53 @@
+{{/*
+	Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+	This source code is available under agreement available at
+	https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+	You should have received a copy of the agreement
+	along with this program; if not, write to Talend SA
+	9 rue Pages 92150 Suresnes, France
+*/}}
+
+{{ $apiDefinition := . -}}
+{{ $contract := $apiDefinition.contract -}}
+
+{{ $scratch := newScratch -}}
+{{/*
+	Index by their json path all elements that can be referenced:
+		- text
+		- resources
+		- types
+		- securitySchemes
+		- scopes
+		- components
+*/}}
+{{ range $type := slice "texts" "resources" "types" -}}
+	{{ with (index $contract $type) -}}
+		{{ range $key,$value := . -}}
+			{{ $scratch.SetInMap "itemsByJsonPath" (print "#/contract/" $type "/" $key) $value -}}
+		{{ end -}}
+	{{ end -}}
+{{ end -}}
+
+{{ with $contract.securitySchemes -}}
+	{{ range $securitySchemeKey,$securityScheme := . -}}
+		{{ $scratch.SetInMap "itemsByJsonPath" (print "#/contract/securitySchemes/" $securitySchemeKey) $securityScheme -}}
+		{{ with $securityScheme.settings.scopes -}}
+			{{ range $scopeSchemeKey,$scopeScheme := . -}}
+				{{ $scratch.SetInMap "itemsByJsonPath" (print "#/contract/securitySchemes/" $securitySchemeKey "/settings/scopes/" $scopeSchemeKey) $scopeScheme -}}
+			{{ end -}}
+		{{ end -}}
+	{{ end -}}
+{{ end -}}
+
+{{ with $apiDefinition.components -}}
+	{{ $component := . -}}
+	{{ range $type := slice "queryParameters" "headers" "pathVariables" "responses" -}}
+		{{ range $key,$value := index $component $type -}}
+			{{ $scratch.SetInMap "itemsByJsonPath" (print "#/components/" $type "/" $key) $value -}}
+		{{ end -}}
+	{{ end -}}
+{{ end -}}
+
+{{ return $scratch.Get "itemsByJsonPath" -}}

@@ -1,0 +1,58 @@
+#    Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+#
+#   This source code is available under agreement available at
+#  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+#
+#   You should have received a copy of the agreement
+#  along with this program; if not, write to Talend SA
+# 9 rue Pages 92150 Suresnes, France
+
+
+# Configure the whole Hugo site
+# see https://gohugo.io/getting-started/configuration/
+
+# Indicates the default language of the portal Web site.
+# Labels are translated in the "i18n" directory
+# see https://gohugo.io/content-management/multilingual/
+DefaultContentLanguage: en
+# Name of the theme used to generate the Web site
+theme: "talend-1.0.0"
+relativeURLs: true
+
+# Title used in the header and footer of the Web site
+languages:
+  en:
+    title: "API Portal"
+    weight: 1
+
+# Tells Hugo that the "apis" directory is actually a content directory
+# see https://gohugo.io/hugo-modules/configuration/#module-config-mounts
+module:
+  mounts:
+  - source: apis
+    target: content/apis
+  - source: content
+    target: content
+  - source: static
+    target: static
+  - source: layouts
+    target: layouts
+  - source: data
+    target: data
+  - source: assets
+    target: assets
+  - source: i18n
+    target: i18n
+  - source: archetypes
+    target: archetypes
+
+params:
+# The "api-list" parameter configures the way APIs are displayed in the list of APIs page ("/apis/").
+# By default APIs are sorted according to their names.
+# But it can be configured to gather them by topic.
+# Here is a sample configuration that creates a group entitled "Core APIs" which gathers the APIs 
+# "contacts" and "tasks". These names are the names of sub-directories of "/apis".
+#  api-list:
+#    - Core APIs:
+#      - contacts
+#      - tasks

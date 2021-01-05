@@ -1,0 +1,83 @@
+{{/*
+	Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+	This source code is available under agreement available at
+	https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+	You should have received a copy of the agreement
+	along with this program; if not, write to Talend SA
+	9 rue Pages 92150 Suresnes, France
+*/}}
+{{/*
+	Generate human readable ids for:
+		- sections
+		- texts
+		- operations
+		- types
+		- security schemes
+		- scopes
+	It also handles collisions of ids (with a trailing counter).
+*/}}
+
+{{ $contract := . -}}
+
+{{ $scratch := newScratch -}}
+{{ range $key,$section := $contract.sections -}}
+	{{ $anchor := (print "section_" $section.name) | anchorize -}}
+	{{ $scratch.Add $anchor 1 -}}
+	{{ if gt ($scratch.Get $anchor) 1 -}}
+		{{ $anchor = print $anchor "_" ($scratch.Get $anchor) -}}
+	{{ end -}}
+	{{ $scratch.SetInMap "idsByJsonPath" (print "#/contract/sections/" $key) $anchor -}}
+{{ end -}}
+
+{{ range $key,$text := $contract.texts -}}
+	{{ $anchor := (print "text_" $text.title) | anchorize -}}
+	{{ $scratch.Add $anchor 1 -}}
+	{{ if gt ($scratch.Get $anchor) 1 -}}
+		{{ $anchor = print $anchor "_" ($scratch.Get $anchor) -}}
+	{{ end -}}
+	{{ $scratch.SetInMap "idsByJsonPath" (print "#/contract/texts/" $key) $anchor -}}
+{{ end -}}
+
+{{ range $key,$type := $contract.types -}}
+	{{ $anchor := (print "type_" $type.name) | anchorize -}}
+	{{ $scratch.Add $anchor 1 -}}
+	{{ if gt ($scratch.Get $anchor) 1 -}}
+		{{ $anchor = print $anchor "_" ($scratch.Get $anchor) -}}
+	{{ end -}}
+	{{ $scratch.SetInMap "idsByJsonPath" (print "#/contract/types/" $key) $anchor -}}
+{{ end -}}
+
+{{ range $securitySchemeKey,$securityScheme := $contract.securitySchemes -}}
+	{{ $anchor := (print "securityScheme_" $securityScheme.name) | anchorize -}}
+	{{ $scratch.Add $anchor 1 -}}
+	{{ if gt ($scratch.Get $anchor) 1 -}}
+		{{ $anchor = print $anchor "_" ($scratch.Get $anchor) -}}
+	{{ end -}}
+	{{ $scratch.SetInMap "idsByJsonPath" (print "#/contract/securitySchemes/" $securitySchemeKey) $anchor -}}
+
+	{{ with $securityScheme.settings.scopes -}}
+		{{ range $scopeKey,$scope := . -}}
+			{{ $scopeAnchor := (print "securitySchemeScope_" $scope.name) | anchorize -}}
+			{{ $scratch.Add $scopeAnchor 1 -}}
+			{{ if gt ($scratch.Get $scopeAnchor) 1 -}}
+				{{ $scopeAnchor = print $scopeAnchor "_" ($scratch.Get $scopeAnchor) -}}
+			{{ end -}}
+			{{ $scratch.SetInMap "idsByJsonPath" (print "#/contract/securitySchemes/" $securitySchemeKey "/settings/scopes/" $scopeKey) $scopeAnchor -}}
+		{{ end -}}
+	{{ end -}}
+{{ end -}}
+
+{{ range $contract.resources -}}
+	{{ range $key,$operation := .operations -}}
+		{{ $anchor := (print "operation_" $operation.name) | anchorize -}}
+		{{ $scratch.Add $anchor 1 -}}
+		{{ if gt ($scratch.Get $anchor) 1 -}}
+			{{ $anchor = print $anchor "_" ($scratch.Get $anchor) -}}
+		{{ end -}}
+		{{ $scratch.SetInMap "idsByJsonPath" (print "#/contract/operations/" $key) $anchor -}}
+	{{ end -}}
+{{ end -}}
+
+{{ return $scratch.Get "idsByJsonPath" -}}

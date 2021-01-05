@@ -1,0 +1,60 @@
+{{/*
+	Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+	This source code is available under agreement available at
+	https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+	You should have received a copy of the agreement
+	along with this program; if not, write to Talend SA
+	9 rue Pages 92150 Suresnes, France
+*/}}
+{{ $currentPage := . -}}
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+	<head>
+{{ with (index .Params "api-definition") -}}
+		<title>{{ .info.name -}}</title>
+		<meta property="og:title" content="{{ .info.name -}}">
+{{ end -}}
+{{ partial "head" . -}}
+	</head>
+	<body class="api-reference">
+		<header class="header">
+{{ partial "header" . -}}
+		</header>
+
+{{ with (index .Params "api-definition") -}}
+	{{ $apiDefinition := . -}}
+
+	{{/* generates the Rwadef used by the "Try-in-Tester" feature. */}}
+	{{ $targetPath := (print "json/" $apiDefinition.Info.Name "-" $apiDefinition.Info.Version ".apitesterformat6.json") | urlize -}}
+	{{ $etnResourceUrl := "" -}}
+	{{ with (index $currentPage.Params "api-test") -}}
+		{{ $etnResourceUrl = ( . | jsonify | resources.FromString $targetPath).Permalink -}}
+	{{ end -}}
+
+	{{ $itemsByJsonPath := partial "apis/1.0.0/functions/itemsByJsonPath" $apiDefinition -}}
+	{{ $idsByJsonPath := dict -}}
+	{{ with $apiDefinition.contract -}}
+		{{ $idsByJsonPath = partial "apis/1.0.0/functions/idsByJsonPath" . -}}
+	{{ end -}}
+	{{ $apiVersionPages := where $.Site.RegularPages "Type" "eq" $currentPage.Type -}}
+	{{ $siblingsApiDefinitionsPages := partial "apis/1.0.0/functions/siblingsApiDefinitionsPages" (dict "apiVersionPages" $apiVersionPages "currentApiName" $apiDefinition.Info.Name) -}}
+		<aside class="left-panel">
+	{{ partial "apis/1.0.0/apiDefinition/leftPanel" (dict "currentPage" $currentPage "siblingsApiDefinitionsPages" $siblingsApiDefinitionsPages "resources" $currentPage.Resources "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "rwadefResource" $etnResourceUrl) -}}
+		</aside>
+		<main id="content">
+	{{ partial "apis/1.0.0/breadcrumb" $currentPage -}}
+    {{ partial "apis/1.0.0/apiDefinition/content" (dict "currentPage" $currentPage "itemsByJsonPath" $itemsByJsonPath "idsByJsonPath" $idsByJsonPath "apiDefinition" $apiDefinition "rwadefResource" $etnResourceUrl) -}}
+		</main>
+{{ else -}}  {{/* The API has no "api-definition" YAML node */}}
+		<main id="content">{{ i18n "content-not-expected" -}}</main>
+{{ end -}}
+		<footer class="footer">
+{{ partial "footer" . -}}
+		</footer>
+
+{{ $js := resources.Get "js/apis.js"  | minify | fingerprint  }}
+		<script src="{{ $js.Permalink }}"></script>
+	</body>
+</html>

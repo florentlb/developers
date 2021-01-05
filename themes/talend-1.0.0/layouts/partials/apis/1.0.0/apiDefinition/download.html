@@ -1,0 +1,36 @@
+{{/*
+  Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+
+  This source code is available under agreement available at
+  https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+
+  You should have received a copy of the agreement
+  along with this program; if not, write to Talend SA
+  9 rue Pages 92150 Suresnes, France
+*/}}
+{{ $pageResources := . -}}
+
+{{ $oas30Resource     := dict "resource" ($pageResources.GetMatch "*openapi30*.json") "i18n" (i18n "download-oas30") -}}
+{{ $swagger2Resource := dict "resource" ($pageResources.GetMatch "*swagger20*.json") "i18n" (i18n "download-swagger20") -}}
+
+{{ with where (slice $oas30Resource $swagger2Resource) "resource" "!=" nil -}}
+<div class="dropdown">
+  {{ if eq (len .) 1 -}}
+    {{ with index . 0 -}}
+  <button class="js-dropdown btn btn--primary" aria-controls="download" aria-haspopup="false" aria-expanded="false" type="button">
+    <a href="{{ .resource.Permalink }}" tabindex="-1" download>{{ i18n "download-title-with-parameter" .i18n -}}</a>
+  </button>
+    {{ end -}}
+  {{ else -}}
+  <button class="js-dropdown btn btn--primary" aria-controls="download" aria-haspopup="true" aria-expanded="false" type="button">
+    {{ i18n "download-title" -}}
+    <svg viewBox="0 0 16 16" aria-hidden="true" class="dropdown__icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg>
+  </button>
+  <div id="download" role="menu" class="dropdown__content" hidden>
+    {{ range $resource := . -}}
+    <a href="{{ $resource.resource.Permalink }}" role="menuitem" class="dropdown__item" tabindex="-1" download>{{ $resource.i18n -}}</a>
+    {{ end -}}
+  </div>
+  {{ end -}}
+</div>
+{{ end -}}

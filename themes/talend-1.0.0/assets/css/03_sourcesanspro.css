@@ -1,0 +1,59 @@
+/*
+ * Copyright (C) 2010-2020 Talend Inc. - www.talend.com
+ *
+ * This source code is available under agreement available at
+ * https://github.com/Talend/api-portal-template/blob/main/LICENSE.md
+ *
+ * You should have received a copy of the agreement
+ * along with this program; if not, write to Talend SA
+ * 9 rue Pages 92150 Suresnes, France
+ */
+
+/* source-sans-pro-regular - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'),
+  url(../fonts/sourceSansPro/source-sans-pro-v9-latin-regular.woff2) format('woff2');
+}
+/* source-sans-pro-italic - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Source Sans Pro Italic'), local('SourceSansPro-It'),
+  url(../fonts/sourceSansPro/source-sans-pro-v9-latin-italic.woff2) format('woff2');
+}
+/* source-sans-pro-600 - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'),
+  url(../fonts/sourceSansPro/source-sans-pro-v9-latin-600.woff2) format('woff2');
+}
+/* source-sans-pro-600italic - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold Italic'), local('SourceSansPro-SemiboldIt'),
+  url(../fonts/sourceSansPro/source-sans-pro-v9-latin-600italic.woff2) format('woff2');
+}
+/* source-sans-pro-700 - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+  url(../fonts/sourceSansPro/source-sans-pro-v9-latin-700.woff2) format('woff2');
+}
+/* source-sans-pro-700italic - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold Italic'), local('SourceSansPro-BoldIt'),
+  url(../fonts/sourceSansPro/source-sans-pro-v9-latin-700italic.woff2) format('woff2');
+}
