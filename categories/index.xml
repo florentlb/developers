@@ -5,5 +5,23 @@
     <link>/categories/</link>
     <description>Recent content in Categories on API Portal</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API services, deployment</title>
+      <link>/categories/api-services-deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/api-services-deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orchestration, deployment</title>
+      <link>/categories/orchestration-deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/orchestration-deployment/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/en/docs/tutorials/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/docs/</loc>
+  </url>
+  
+  <url>
+    <loc>/apis/api-definitions/1.0.0/</loc>
+  </url>
+  
+  <url>
+    <loc>/apis/user-management/1.0.0/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/api-services-deployment/</loc>
+  </url>
+  
+  <url>
     <loc>/apis/</loc>
   </url>
   
@@ -11,15 +31,35 @@
   </url>
   
   <url>
+    <loc>/en/docs/tutorials/deploying-api-def-to-aws-api-gateway/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/docs/tutorials/deploying-api-def-to-azure-api-management/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/</loc>
+  </url>
+  
+  <url>
     <loc>/getting-started/</loc>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/categories/orchestration-deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/docs/tutorials/automating-remote-engine-creation/</loc>
   </url>
   
   <url>
     <loc>/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
   </url>
   
 </urlset>

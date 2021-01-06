@@ -1,0 +1,201 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+
+
+<meta charset="utf-8">
+<meta name="description" content="Use the Talend Cloud API Designer public API to automatically update your API to AWS API Gateway." /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/en/docs/tutorials/deploying-api-def-to-aws-api-gateway/">
+
+
+<link rel="icon" type="image/svg+xml" href="../../../../img/brand-logo.png" sizes="196x196" />
+<link rel="apple-touch-icon" href="../../../../img/brand-logo.png" sizes="196x196" />
+<link rel="alternate icon" href="../../../../favicon.ico" />
+
+<link rel="stylesheet" href="../../../../css/full.min.40a9360c1694a39611cb840439eb2478e96e8f3ae2ddfdc503283e5ec52026ea.css" media="all" />
+
+
+<meta name="theme-color" content="#fafafa" />
+</head>
+	<body class="container">
+		<header class="header">
+
+
+<ul class="header__menu">
+  <li class="header__item">
+    <a class="header__link header__brand " href="../../../../" >
+      <span class="sr-only">Home</span>
+      <span>API Portal</span>
+    </a>
+  </li>
+<li class="header__item">
+    <a href="../../../../getting-started/" class="header__link"  >Getting started</a>
+  </li>
+<li class="header__item">
+    <a href="../../../../apis/" class="header__link"  >APIs</a>
+  </li>
+<li class="header__item">
+    <a href="../../../../en/docs/" class="header__link header__section--active"  >Documentation</a>
+  </li>
+</ul>
+</header>
+		<main id="content" class="wysiwyg">
+
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+	<ol class="breadcrumb__list">
+		<li class="breadcrumb__item"><a href="../../../../" class="breadcrumb__element">Home</a></li>
+<li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a href="../../../../en/" class="breadcrumb__element">Ens</a></li>
+    <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a href="../../../../en/docs/" class="breadcrumb__element">Documentation</a></li>
+    <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a href="../../../../en/docs/tutorials/" class="breadcrumb__element">Tutorials</a></li>
+    <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a aria-current="page" href="../../../../en/docs/tutorials/deploying-api-def-to-aws-api-gateway/" class="breadcrumb__element"></a></li>
+    </ol>
+</nav>
+<h1 id="deploying-an-api-definition-to-aws-api-gateway">Deploying an API definition to AWS API Gateway</h1>
+<p>This example explains how to import a new API definition or update an existing one in AWS API Gateway from Talend Cloud API Designer.</p>
+<p><img src="../../../../img/talendcloud_to_aws_api_gateway.png" alt="Talend Cloud to AWS API Gateway"></p>
+<p>To do this, you first have to fetch your API from Talend Cloud, then you need to deploy it to AWS API Gateway using a command line script or a CI/CD pipeline.</p>
+<p>The following procedures use AWS CLI, but you can also use the AWS API Gateway REST API.</p>
+<p>For more information, see the following resources:</p>
+<ul>
+<li><a href="https://help.talend.com/access/sources/content/map?pageid=tapid_ug&amp;EnrichVersion=Cloud&amp;afs:lang=en">Talend Cloud API Designer User Guide</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/index.html">AWS Command Line Interface User Guide</a></li>
+<li><a href="https://docs.aws.amazon.com/en_en/apigateway/latest/developerguide/index.html">AWS API Gateway Developer Guide</a></li>
+<li><a href="https://docs.aws.amazon.com/apigateway/api-reference/">AWS API Gateway REST API Reference</a></li>
+</ul>
+<h2 id="fetching-an-api-definition-for-aws-api-gateway">Fetching an API definition for AWS API Gateway</h2>
+<p>Export an API defintion as a JSON file compatible with AWS API Gateway from Talend Cloud API Designer.</p>
+<p>Make sure that:</p>
+<ul>
+<li>You have installed cURL. For more information, see the <a href="https://curl.haxx.se/docs/">cURL documentation</a>.</li>
+<li>You have generated a Personal Access Token from Talend Cloud. For more information, see the <a href="https://help.talend.com/access/sources/content/map?pageid=tapid_ug&amp;EnrichVersion=Cloud&amp;afs:lang=en">Talend Cloud API Designer User Guide</a>.</li>
+<li>You have created an API in Talend Cloud API Designer.</li>
+</ul>
+<ol>
+<li>Open a command line and enter the following command to export your API definition:
+<pre><code>curl --header &quot;Authorization:Bearer {userToken}&quot; -X GET -o {outFile}.json https://apid.{region}.cloud.talend.com/api/v1/api-definitions/{api-id}?format=OpenApi3Aws
+</code></pre></li>
+<li>Add the correct parameters:
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{userToken}</td>
+<td>Token generated from Talend Cloud.</td>
+</tr>
+<tr>
+<td>{outFile}</td>
+<td>Path and filename of your API definition. For example: contactsapi.json</td>
+</tr>
+<tr>
+<td>{region}</td>
+<td>Region for your Talend Cloud account. The value can be: us, eu, ap, at. For more information, see <a href="https://help.talend.com/access/sources/content/map?pageid=talend_cloud_regions&amp;EnrichVersion=Cloud&amp;afs:lang=en">Talend Cloud regions and URLs</a>.</td>
+</tr>
+<tr>
+<td>{api-id}</td>
+<td>ID of the API to fetch. To get it, open your API in Talend Cloud API Designer and go to <strong>Settings</strong> &gt; <strong>MANAGEMENT API</strong>.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Execute the command.</li>
+</ol>
+<p>Your API definition is exported as a JSON file compatible with AWS API Gateway and saved in the selected directory.</p>
+<p>For more information about exporting an API definition with an API gateway compatibility mode, see the <a href="https://help.talend.com/access/sources/content/map?pageid=tapid_ug&amp;EnrichVersion=Cloud&amp;afs:lang=en">Talend Cloud API Designer User Guide</a>.</p>
+<h2 id="importing-an-api-definition-to-aws-api-gateway">Importing an API definition to AWS API Gateway</h2>
+<p>Import your API definition as a JSON file to AWS API Gateway.</p>
+<p>Make sure that:</p>
+<ul>
+<li>You have access to AWS API Gateway.</li>
+<li>You have installed AWS CLI. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">Installing the AWS CLI</a>.</li>
+<li>You have exported your API definition as a JSON file.</li>
+</ul>
+<ol>
+<li>Open a command line and enter the following command to upload the file:
+<pre><code>aws apigateway import-rest-api [--parameters endpointConfigurationTypes={type}] --body 'file://{yourfile}.json'
+</code></pre></li>
+<li>Add the correct parameters:
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{type}</td>
+<td>Optional. Defines the type of endpoint to use. The value can be: <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><em>EDGE</em> for an edge-optimized API setup, most suitable for mobile applications (this is the default value).<!-- raw HTML omitted --><!-- raw HTML omitted --><em>REGIONAL</em> for a regional API endpoint. <!-- raw HTML omitted --><!-- raw HTML omitted --><em>PRIVATE</em> for a private API.<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+</tr>
+<tr>
+<td>{yourfile}</td>
+<td>Path and file name of the API definition you exported.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Execute the command.</li>
+</ol>
+<p>Your API is imported and the command line returns information about your API, such as its ID, which can be used to update it. You can check your API definition on the AWS API Gateway console.</p>
+<p><img src="../../../../img/talendcloud_to_aws_api_gateway_2.png" alt="Amazon API Gateway console"></p>
+<p>For more information about the <code>import-rest-api</code> command, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html">AWS documentation</a>.</p>
+<h2 id="updating-an-api-definition-on-aws-api-gateway">Updating an API definition on AWS API Gateway</h2>
+<p>Import a JSON file to AWS API Gateway to update an existing definition.</p>
+<p>Make sure that:</p>
+<ul>
+<li>You have access to AWS API Gateway.</li>
+<li>You have installed AWS CLI. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">Installing the AWS CLI</a>.</li>
+<li>You have exported your API definition as a JSON file.</li>
+<li>You have uploaded a previous version of the API definition to AWS API Gateway.</li>
+</ul>
+<ol>
+<li>Open a command line and enter the following command to upload the file:
+<pre><code>aws apigateway put-rest-api --rest-api-id {api-id} --mode {mode} --body 'file://{yourfile}.json'
+</code></pre></li>
+<li>Add the correct parameters:
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{api-id}</td>
+<td>AWS API Gateway ID of the API to update.</td>
+</tr>
+<tr>
+<td>{mode}</td>
+<td>Behavior at import. The value can be either <em>overwrite</em> to replace the previous version of the API with the new one, or <em>merge</em> to merge the two versions.</td>
+</tr>
+<tr>
+<td>{yourfile}</td>
+<td>Path and file name of the API definition you exported.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Execute the command.</li>
+</ol>
+<p>Your API definition is merged or overwritten, depending on the mode you defined. You can check your update on the AWS API Gateway console.</p>
+<p>In this example, a first version of the API definition containing only the <strong>/contacts</strong> resource and its operations was uploaded. Then, a second version with the <strong>/companies</strong> resource was uploaded and merged with the previous version.</p>
+<p><img src="../../../../img/talendcloud_to_aws_api_gateway_3.png" alt="Amazon API Gateway console"></p>
+<p>For more information about the <code>put-rest-api</code> command, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/put-rest-api.html">AWS documentation</a>.</p>
+</main>
+		<footer class="footer">
+
+
+<span>API Portal</span>
+</footer>
+	</body>
+</html>
