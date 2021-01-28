@@ -12,7 +12,7 @@
 
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/apis/user-management/1.0.0/">
+<meta property="og:url" content="/apis/user-management/1.1.0/">
 
 
 <link rel="icon" type="image/svg+xml" href="../../../img/brand-logo.png" sizes="196x196" />
@@ -58,11 +58,11 @@
 <div class="left-panel__wrapper">
   <div class="api__general">
     <h1>User Management</h1>
-<div class="dropdown api__version"><button type="button" class="btn btn__version js-dropdown" aria-controls="versions_971bfa9549a110931001ab24df553684" aria-haspopup="true" aria-expanded="false">1.0.0<svg viewBox="0 0 16 16" aria-hidden="true" class="dropdown__icon btn__version--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg>
+<div class="dropdown api__version"><button type="button" class="btn btn__version js-dropdown" aria-controls="versions_3ba854b59234da61041f9f597a101910" aria-haspopup="true" aria-expanded="false">1.1.0<svg viewBox="0 0 16 16" aria-hidden="true" class="dropdown__icon btn__version--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg>
   </button>
-  <div id="versions_971bfa9549a110931001ab24df553684" role="menu" class="dropdown__content" hidden>
-  <a href="../../../apis/user-management/1.0.0/" role="menuitem" class="dropdown__item dropdown__item--selected" aria-current="page" tabindex="-1">1.0.0</a>
-  <a href="../../../apis/user-management/1.1.0/" role="menuitem" class="dropdown__item" tabindex="-1">1.1.0</a>
+  <div id="versions_3ba854b59234da61041f9f597a101910" role="menu" class="dropdown__content" hidden>
+  <a href="../../../apis/user-management/1.0.0/" role="menuitem" class="dropdown__item" tabindex="-1">1.0.0</a>
+  <a href="../../../apis/user-management/1.1.0/" role="menuitem" class="dropdown__item dropdown__item--selected" aria-current="page" tabindex="-1">1.1.0</a>
   </div>
 </div>
 </div>
@@ -86,9 +86,7 @@
   <nav class="api__nav" aria-label="API content">
     <ul class="api-toc js-api-toc">
 <li><ul class="api-toc__content">
-    <li class="api-toc__item api-toc__item--request-get"><a href="#operation_retrieve-filtered-list-of-groups-updated">Retrieve filtered list of groups (updated)</a></li>
-        <li class="api-toc__item api-toc__item--request-post"><a href="#operation_register-a-new-group">Register a new group</a></li>
-        <li class="api-toc__item api-toc__item--request-delete"><a href="#operation_delete-an-existing-group">Delete an existing group</a></li>
+    <li class="api-toc__item api-toc__item--request-delete"><a href="#operation_delete-an-existing-group">Delete an existing group</a></li>
         <li class="api-toc__item api-toc__item--request-patch"><a href="#operation_rename-an-existing-group">Rename an existing group</a></li>
         <li class="api-toc__item api-toc__item--request-get"><a href="#operation_retrieve-group-details">Retrieve group details</a></li>
         <li class="api-toc__item api-toc__item--request-get"><a href="#operation_retrieve-users-associated-with-a-group">Retrieve users associated with a group</a></li>
@@ -122,6 +120,16 @@
     <li class="api-toc__item api-toc__item--datatype"><a href="#type_user">User</a></li>
     </ul>
 </li>
+<li>
+        <details open>
+          <summary class="api-toc__section-title"><a href="#section_group">Group</a></summary>
+  <ul class="api-toc__content">
+    <li class="api-toc__item_text"><a href="#text_groups">Groups</a></li>
+     <li class="api-toc__item api-toc__item--request-get"><a href="#operation_retrieve-filtered-list-of-groups-updated">Retrieve filtered list of groups (updated)</a></li>
+        <li class="api-toc__item api-toc__item--request-post"><a href="#operation_register-a-new-group">Register a new group</a></li>
+        </ul>
+</details>
+      </li>
 </ul>
   </nav>
 </div>
@@ -136,7 +144,7 @@
     <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a href="../../../apis/" class="breadcrumb__element">APIs</a></li>
 
   
-  <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a aria-current="page" href="../../../apis/user-management/1.0.0/" class="breadcrumb__element">User Management</a></li>
+  <li class="breadcrumb__item"><span class="breadcrumb__separator" aria-hidden="true"> / </span><a aria-current="page" href="../../../apis/user-management/1.1.0/" class="breadcrumb__element">User Management</a></li>
 </ol>
 </nav>
 
@@ -145,17 +153,19 @@
 <div class="api-description wysiwyg">Service which exposes public API for customer operations facilitation</div>
 
 <dl class="definition contact">
-  <dt class="contact__term">License</dt>
+  <dt class="contact__term">Contact</dt>
+  <dd class="contact__definition"><span>TPSVC Team</span></dd>
+    <dt class="contact__term">License</dt>
       <dd class="contact__definition"><a href="https://github.com/Talend/tdf-platform-services#license">Apache License Version 2.0</a></dd>
     </dl>
 <div class="definition">
       <h3 id="endpoints">Endpoints</h3>
       <ul class="endpoints">
         <li class="endpoint__value">
-          <span class="endpoint__url"></span>
+          <span class="endpoint__url">http://public-api.arch.dev.datapwn.com/</span>
           </li>
         <li class="endpoint__value">
-          <span class="endpoint__url"></span>
+          <span class="endpoint__url">https://g40oosh.us.api-mocks.com</span>
           <div class="endpoint__description wysiwyg">Endpoint du mock de votre API. Lorsqu&rsquo;il est appelé, il simule le comportement de votre API.</div></li>
         </ul>
     </div>
@@ -221,560 +231,6 @@ string<span class="badge">Optional</span></td>
 </details>
 </section>
 
-
-
-
-
-<section id="operation_retrieve-filtered-list-of-groups-updated_anchor" class="operation" aria-labelledby="operation_retrieve-filtered-list-of-groups-updated">
-	<div class="operation__content">
-        <h3 id="operation_retrieve-filtered-list-of-groups-updated">Retrieve filtered list of groups (updated)</h3>
-        <span class="operation--get operation--default">GET</span> <span class="operation__url">/v1/management/groups</span>
-		<div class="definition__security definition">
-			<h4>Security</h4>
-	      	<div>
-			
-
-<ul class="operation-security">
-
-<li class="operation-security__type"><a href="#securityscheme_bearer">Bearer</a>
-			</li>
-		</ul>
-</div>
-	    </div>
-        <div class="definition__content definition">
-			<div>
-				<h4>Request</h4>
-		
-
-
-
-<table>
-  <caption class="request__query-parameters">Query parameters</caption><thead class="sr-only">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Type</th>
-      <th scope="col">Attributes and examples</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-      
-
-
-<tr class="request__parameter">
-	<th scope="row">nameFilter</th>
-	<td class="wysiwyg">nameFilter</td>
-	<td class="request__parameter-type">
-
-
-string<span class="badge">Optional</span></td>
-	<td class="request__parameter-attributes-examples"></td>
-</tr>
-
-      
-
-
-<tr class="request__parameter">
-	<th scope="row">page</th>
-	<td class="wysiwyg"></td>
-	<td class="request__parameter-type">
-
-
-integer<span class="badge">Optional</span></td>
-	<td class="request__parameter-attributes-examples"><div class="request__parameter-attribute-example"><span class="metadata__label">Default</span><span class="badge">1</span></div><div class="request__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div><div class="request__parameter-attribute-example">
-	<span class="metadata__label">Example</span><span class="badge">1</span></div>
-</td>
-</tr>
-
-      
-
-
-<tr class="request__parameter">
-	<th scope="row">size</th>
-	<td class="wysiwyg"></td>
-	<td class="request__parameter-type">
-
-
-integer<span class="badge">Optional</span></td>
-	<td class="request__parameter-attributes-examples"><div class="request__parameter-attribute-example"><span class="metadata__label">Default</span><span class="badge">50</span></div><div class="request__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div><div class="request__parameter-attribute-example">
-	<span class="metadata__label">Example</span><span class="badge">50</span></div>
-</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-		
-
-</div>
-		<div class="definition__content definition">
-			<h4>Response</h4>
-		
-		
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--2xx">200</span>Status 200</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Groups successfully retrieved</div>
-
-<table>
-  <caption class="response__headers">Headers</caption><thead class="sr-only">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Type</th>
-      <th scope="col">Attributes and examples</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">total-elements</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-integer<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
-</tr>
-
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">page-total-elements</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-integer<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
-</tr>
-
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">page-first</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-boolean<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"></td>
-</tr>
-
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">total-pages</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-integer<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
-</tr>
-
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">page-last</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-boolean<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"></td>
-</tr>
-
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">page-number</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-integer<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
-</tr>
-</tbody>
-</table>
-
-
-<div class="response__content">
-    <span class="response__body">Body</span>
-    <div class="dropdown">
-    <span class="response__mimetype">application/json</span></div>
-</div>
-
-    <div id="body_cc519587e5bb030b3e6b8449fbc88472applicationjson" class="body__content" >
-    <div class="body__content">
-
-
-
-
-<table>
-  <caption class="data-type-title sr-only">&lt;no value&gt; details</caption>
-  <thead class="sr-only">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Type</th>
-      <th scope="col">Attributes and examples</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="b2ceb2f00ae4fc3cf4c3f30ad0c43c46">
-array of 
-
-
-
-<a href="#type_group">Group</a>
-<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
-	<span class="sr-only">Group details</span>
-	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
-</button>
-<div class="tooltip-wrapper"></div>
-
-      </th>
-      <td class="response-body__parameter-attributes-examples">
-<table id="b2ceb2f00ae4fc3cf4c3f30ad0c43c46">
-  <caption class="response-body-title sr-only">Datatype details</caption>
-  <thead class="sr-only">
-    <tr>
-      <th scope="col">Type</th>
-      <th scope="col">Description</th>
-      <th scope="col">Attributes and examples</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr class="response-body__parameter response-body__array-first-type">
-      <th scope="row">array</th>
-      <td></td>
-      <td class="response-body__parameter-attributes-examples">
-  
-    </td>
-    </tr>
-<tr class="response-body__parameter array-parameter--description">
-      <th scope="row">
-      Group</th>
-      <td></td>
-      <td class="response-body__parameter-attributes-examples"></td>
-    </tr>
-  </tbody>
-</table>
-      </td>
-      <td colspan="2"></td>
-    </tr>
-</tbody>
-</table>
-</div>
-        </div>
-    </details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">400</span>Status 400</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Invalid request URI</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">401</span>Status 401</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Indicates that the system failed to authenticate the user. Either the Authorization header was forgotten or the provided token is incorrect</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">403</span>Status 403</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">The system failed to authorize the user. It indicates that the provided token is recognized but does not have the rights to perform the action. In that case, a security administrator must be contacted to be granted the proper rights.</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">429</span>Status 429</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers.</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--5xx">500</span>Status 500</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Internal server error</div>
-
-
-
-</details>
-</div>
-</div>
-	</div>
-	<div class="operation__content-info operation__content-info--odd">
-		
-
-<button type="button" class="try-in-tester btn btn--primary btn-as-link">Try in API Tester</button>
-</div>
-</section>
-
-
-<section id="operation_register-a-new-group_anchor" class="operation" aria-labelledby="operation_register-a-new-group">
-	<div class="operation__content">
-        <h3 id="operation_register-a-new-group">Register a new group</h3>
-        <span class="operation--post operation--default">POST</span> <span class="operation__url">/v1/management/groups</span>
-		<div class="definition__security definition">
-			<h4>Security</h4>
-	      	<div>
-			
-
-<ul class="operation-security">
-
-<li class="operation-security__type"><a href="#securityscheme_bearer">Bearer</a>
-			</li>
-		</ul>
-</div>
-	    </div>
-        <div class="definition__content definition">
-			<div>
-				<h4>Request</h4>
-		
-
-
-
-
-
-</div>
-		
-
-<div class="request__content">
-    <span class="request__body">Body</span>
-    <div class="dropdown">
-    <span class="request__mimetype">application/json</span></div>
-</div>
-
-    <div id="body_40cbe8365b3584bf42bb919e08857cc7applicationjson" class="body__content" >
-    <div class="body__content">
-
-
-
-
-<a href="#type_group">Group</a>
-<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
-	<span class="sr-only">Group details</span>
-	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
-</button>
-<div class="tooltip-wrapper"></div>
-</div>
-        </div>
-    </div>
-		<div class="definition__content definition">
-			<h4>Response</h4>
-		
-		
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--2xx">200</span>Status 200</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">OK</div>
-
-
-
-<div class="response__content">
-    <span class="response__body">Body</span>
-    <div class="dropdown">
-    <span class="response__mimetype">application/json</span></div>
-</div>
-
-    <div id="body_ee8c4594b82b7b8f641035bb908c537capplicationjson" class="body__content" >
-    <div class="body__content">
-
-
-
-
-<a href="#type_group">Group</a>
-<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
-	<span class="sr-only">Group details</span>
-	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
-</button>
-<div class="tooltip-wrapper"></div>
-</div>
-        </div>
-    </details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--2xx">201</span>Status 201</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">New group successfully registered</div>
-
-<table>
-  <caption class="response__headers">Headers</caption><thead class="sr-only">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Type</th>
-      <th scope="col">Attributes and examples</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-      
-
-
-<tr class="response__parameter">
-	<th scope="row">Location</th>
-	<td class="wysiwyg"></td>
-	<td class="response__parameter-type">
-
-
-string<span class="badge">Optional</span></td>
-	<td class="response__parameter-attributes-examples"></td>
-</tr>
-</tbody>
-</table>
-
-
-<div class="response__content">
-    <span class="response__body">Body</span>
-    <div class="dropdown">
-    <span class="response__mimetype">application/json</span></div>
-</div>
-
-    <div id="body_98bbb8274ec5bcf054c037b64583e819applicationjson" class="body__content" >
-    <div class="body__content">
-
-
-
-
-<a href="#type_group">Group</a>
-<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
-	<span class="sr-only">Group details</span>
-	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
-</button>
-<div class="tooltip-wrapper"></div>
-</div>
-        </div>
-    </details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">400</span>Status 400</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Invalid request body. The message will vary depending on the cause. E.g. at least one user in the list provided cannot be found</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">401</span>Status 401</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Indicates that the system failed to authenticate the user. Either the Authorization header was forgotten or the provided token is incorrect</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">403</span>Status 403</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">The system failed to authorize the user. It indicates that the provided token is recognized but does not have the rights to perform the action. In that case, a security administrator must be contacted to be granted the proper rights.</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">409</span>Status 409</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Group with the same name already exists</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--4xx">429</span>Status 429</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers.</div>
-
-
-
-</details>
-</div>
-
-			
-
-<div class="response">
-	<details class="response__detail">
-		<summary class="response__type"><span><span class="badge badge--5xx">500</span>Status 500</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
-		<div class="response-description wysiwyg">Internal server error</div>
-
-
-
-</details>
-</div>
-</div>
-	</div>
-	<div class="operation__content-info operation__content-info--odd">
-		
-
-<button type="button" class="try-in-tester btn btn--primary btn-as-link">Try in API Tester</button>
-</div>
-</section>
 
 
 
@@ -852,7 +308,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_c086c55e849fc44083bb593b12787ebbapplicationjson" class="body__content" >
+    <div id="body_492eb345c6098518b88b45cec7fb7b03applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -881,7 +337,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_5985388fb4e52e317b89bc4467b00cbcapplicationjson" class="body__content" >
+    <div id="body_253fe084958bc3bb84b60bc7c14e7958applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -1011,7 +467,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_59ecb4848b8b25015763b0cf84b937ecapplicationjson" class="body__content" >
+    <div id="body_043b6bc583e8718b5827c4b0f5e99cb4applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -1045,7 +501,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_c0140c8e7bb42f83955bb54e838bc679applicationjson" class="body__content" >
+    <div id="body_9248885eb5b1c77fb38403e6c5b0c9b4applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -1306,7 +762,7 @@ integer<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_5c459e3842bb685b370801b8c49cbef7applicationjson" class="body__content" >
+    <div id="body_ec984018364778502bc9843b5bbfcb5eapplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -1607,7 +1063,7 @@ integer<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_43c778005b9b964ecc3bf8e5b858b421applicationjson" class="body__content" >
+    <div id="body_7e8b854b1e456b83bcb95c0cf2879430applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -1625,7 +1081,7 @@ integer<span class="badge">Optional</span></td>
   </thead>
   <tbody>
     <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="4033cdbcea3fc2ccf324f6040af4eb0c">
+      <th scope="row" aria-describedby="020c32efcaca0c43bb3ff6de4c40cf34">
 array of 
 
 
@@ -1639,7 +1095,7 @@ array of
 
       </th>
       <td class="response-body__parameter-attributes-examples">
-<table id="4033cdbcea3fc2ccf324f6040af4eb0c">
+<table id="020c32efcaca0c43bb3ff6de4c40cf34">
   <caption class="response-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -1814,7 +1270,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_c4f8e82bb3e74bb15c30599857b408c6applicationjson" class="body__content" >
+    <div id="body_8c29be18357b9b4b48f3457cc0b0856eapplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -1832,13 +1288,13 @@ string<span class="badge badge--warn">Required</span></td>
   </thead>
   <tbody>
     <tr class="request-body__parameter request-body__array-type-details">
-      <th scope="row" aria-describedby="c033c0eac4f2ec436f4f2bf04d3bcac0">
+      <th scope="row" aria-describedby="fc63ed0ecf0c0cc2bc344f4af03ba243">
 array of 
 
 string
       </th>
       <td class="request-body__parameter-attributes-examples">
-<table id="c033c0eac4f2ec436f4f2bf04d3bcac0">
+<table id="fc63ed0ecf0c0cc2bc344f4af03ba243">
   <caption class="request-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -1890,7 +1346,7 @@ string
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_828ce4197bbce3c89b605f405b78534bapplicationjson" class="body__content" >
+    <div id="body_005ce73cb1bec84b36985fb8744582b9applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -2076,7 +1532,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_51fe7b56048989c52b84378ce43bbbc0" class="body__content" >
+    <div id="body_4bc0bc3858be804c9f3814795725bbe6" class="body__content" >
     <div class="body__content">
 
 
@@ -2105,7 +1561,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_73ebb1b847e05b980655bc9cc428843f" class="body__content" >
+    <div id="body_0b5ce58b428764457cf9e0c931b8b38b" class="body__content" >
     <div class="body__content">
 
 
@@ -2383,7 +1839,7 @@ boolean<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_479b3065be59c81ec85fcb723884b04bapplicationjson" class="body__content" >
+    <div id="body_e8fb75350bc8b254c98b814c90647eb3applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -2401,7 +1857,7 @@ boolean<span class="badge">Optional</span></td>
   </thead>
   <tbody>
     <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="cfac46e03f4a43bcbdfce000f3cc4232">
+      <th scope="row" aria-describedby="cc34fc06e02f4a020b3dc343ccefbaf4">
 array of 
 
 
@@ -2415,7 +1871,7 @@ array of
 
       </th>
       <td class="response-body__parameter-attributes-examples">
-<table id="cfac46e03f4a43bcbdfce000f3cc4232">
+<table id="cc34fc06e02f4a020b3dc343ccefbaf4">
   <caption class="response-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -2553,7 +2009,7 @@ array of
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_c089c4397cbb382b0e88b7565e41b45fapplicationjson" class="body__content" >
+    <div id="body_32ce6075cbec975f9344b88b4b0b8581applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -2587,7 +2043,7 @@ array of
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_10588fbeb84b2053679973b48c54ecbcapplicationjson" class="body__content" >
+    <div id="body_551b27b893c48ce546f09bbec740b883applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -2644,7 +2100,7 @@ string<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_4401fb483c9b06b5c88b798b55c732eeapplicationjson" class="body__content" >
+    <div id="body_40c50b3e827f3b5bbc7b4514e8c68899applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -2817,7 +2273,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_7b0c335c8ef8475c54628894b0b9ebb1applicationjson" class="body__content" >
+    <div id="body_54bb945f3b18bb7800723c9cc6e4588eapplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -2976,7 +2432,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_08477b5eb59f23448980bcb53c8cb61eapplicationjson" class="body__content" >
+    <div id="body_00cb595bc3b847b4886327ec451fb9e8applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3005,7 +2461,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_4be497ec45b8809cb538803bf2c6751bapplicationjson" class="body__content" >
+    <div id="body_4b539c55b27b7b0804ec888bf4e9c163applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3135,7 +2591,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_5b29b4bb347860e8f953ccceb8587014applicationjson" class="body__content" >
+    <div id="body_81b7c84955fc50bbe4b6b04e893837c2applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3169,7 +2625,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_b8241b903e0b788cc4f894357be65c5bapplicationjson" class="body__content" >
+    <div id="body_c9bf83508b3c55b69b8044cb18e7e724applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3201,7 +2657,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_cb400489713e56e39cbbb82cf88b5457applicationjson" class="body__content" >
+    <div id="body_3b7b069b5cf5b752944ce1088b4e38c8applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3494,7 +2950,7 @@ integer<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_0ebb7b452908fc85b33841c894e5c76bapplicationjson" class="body__content" >
+    <div id="body_e726c31bcb404885e50f98bc73859bb4applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3512,7 +2968,7 @@ integer<span class="badge">Optional</span></td>
   </thead>
   <tbody>
     <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="3a240f6d3203cfc40cbebcfe40c3a4cf">
+      <th scope="row" aria-describedby="a0f04c6c4e330bacc4ec30f2fbdc2f34">
 array of 
 
 
@@ -3526,7 +2982,7 @@ array of
 
       </th>
       <td class="response-body__parameter-attributes-examples">
-<table id="3a240f6d3203cfc40cbebcfe40c3a4cf">
+<table id="a0f04c6c4e330bacc4ec30f2fbdc2f34">
   <caption class="response-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -3701,7 +3157,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_9cb5b60c835b77488139be4cb8425e0fapplicationjson" class="body__content" >
+    <div id="body_0570243b4e8b9c558b6cfb43b8c1897eapplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -3719,13 +3175,13 @@ string<span class="badge badge--warn">Required</span></td>
   </thead>
   <tbody>
     <tr class="request-body__parameter request-body__array-type-details">
-      <th scope="row" aria-describedby="f3ba40ef0dccfc324e24c003b4f3c6ca">
+      <th scope="row" aria-describedby="3fb044de360bcaf04c3c4ccfcf2a23e0">
 array of 
 
 string
       </th>
       <td class="request-body__parameter-attributes-examples">
-<table id="f3ba40ef0dccfc324e24c003b4f3c6ca">
+<table id="3fb044de360bcaf04c3c4ccfcf2a23e0">
   <caption class="request-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -3955,7 +3411,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_3413ec5974b9587fbc808486bb05ceb2" class="body__content" >
+    <div id="body_05e8bcb84be74b96f5318904c3b8257c" class="body__content" >
     <div class="body__content">
 
 
@@ -3984,7 +3440,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_e95bb4bc5fc52c7893b8487064308b1e" class="body__content" >
+    <div id="body_b454f2cc7b33b855e1b70089eb48698c" class="body__content" >
     <div class="body__content">
 
 
@@ -4249,7 +3705,7 @@ integer<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_85245970cb315bb9bc083c74b68f8ee4applicationjson" class="body__content" >
+    <div id="body_ec0b57bf25834c47961c888b53b40be9applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -4267,7 +3723,7 @@ integer<span class="badge">Optional</span></td>
   </thead>
   <tbody>
     <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="ef34fd3cafc2b0f30bc2340ac40c4c6e">
+      <th scope="row" aria-describedby="420acf40e43a343c60f0cdc2efbfbcc3">
 array of 
 
 
@@ -4281,7 +3737,7 @@ array of
 
       </th>
       <td class="response-body__parameter-attributes-examples">
-<table id="ef34fd3cafc2b0f30bc2340ac40c4c6e">
+<table id="420acf40e43a343c60f0cdc2efbfbcc3">
   <caption class="response-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -4444,7 +3900,7 @@ boolean<span class="badge">Optional</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_b4b7038c3e8595b589b810c2c6474bfeapplicationjson" class="body__content" >
+    <div id="body_7fc9885be5b0cc78924381e0b653bb44applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -4478,7 +3934,7 @@ boolean<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_5308bc1bbc40465bc2593eeb4987f878applicationjson" class="body__content" >
+    <div id="body_032f5be469889bb075c83e458c4cb1b7applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -4510,7 +3966,7 @@ boolean<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_7fb3485b0824c5b4b698c9e3ebc57081applicationjson" class="body__content" >
+    <div id="body_0b77eb65bc480388cbbf89e93454c521applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -4669,7 +4125,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_e3c88b47cb5b8580cf26571394b0b9e4applicationjson" class="body__content" >
+    <div id="body_50b855c8b0fb843793b2e741c8e64cb9applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -4703,7 +4159,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_cbe21b0953cb9738be0447885c854bf6applicationjson" class="body__content" >
+    <div id="body_e6bcf9bb2584be1495c437085c87308bapplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -4886,7 +4342,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_487253bb45eb69e8b875419c0803cbcfapplicationjson" class="body__content" >
+    <div id="body_b855c817c2409b34fb4eb0be7c965838applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -5057,7 +4513,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_315b044752c94eec8b8bf903c875b6b8applicationjson" class="body__content" >
+    <div id="body_4c5954b7615b3c78e9b8b2e0fb8840c3applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -5086,7 +4542,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_e37c6458b349274f08bbe18bb5980c5capplicationjson" class="body__content" >
+    <div id="body_4b93c458b7298b75eb0be35c84c8601fapplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -5218,7 +4674,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_760e87258b19398cc540cb4fe8b5bb43applicationjson" class="body__content" >
+    <div id="body_bb32095e96b58e481c5b4b407f78cc83applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -5236,13 +4692,13 @@ string<span class="badge badge--warn">Required</span></td>
   </thead>
   <tbody>
     <tr class="request-body__parameter request-body__array-type-details">
-      <th scope="row" aria-describedby="04ffcce2ab03cfc34ce43c2a6d430f0b">
+      <th scope="row" aria-describedby="4203b43ef40d0ccfe0af64ca2bcc3cf3">
 array of 
 
 string
       </th>
       <td class="request-body__parameter-attributes-examples">
-<table id="04ffcce2ab03cfc34ce43c2a6d430f0b">
+<table id="4203b43ef40d0ccfe0af64ca2bcc3cf3">
   <caption class="request-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -5294,7 +4750,7 @@ string
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_8078c33b4ebbc851e6b929f7084545bcapplicationjson" class="body__content" >
+    <div id="body_8525337bbeb459471f90ccc08b46e8b8applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -5610,7 +5066,7 @@ integer<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_c27bc459cf46385b38b58b7b804e01e9applicationjson" class="body__content" >
+    <div id="body_c5e4bf881693078c0cbb5b74435b82e9applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -5628,7 +5084,7 @@ integer<span class="badge">Optional</span></td>
   </thead>
   <tbody>
     <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="e30b4e44cbccf3cd0f20a6ccf332af40">
+      <th scope="row" aria-describedby="6fa2004b0cccce3ea34dc4f3f3b240fc">
 array of 
 
 
@@ -5642,7 +5098,7 @@ array of
 
       </th>
       <td class="response-body__parameter-attributes-examples">
-<table id="e30b4e44cbccf3cd0f20a6ccf332af40">
+<table id="6fa2004b0cccce3ea34dc4f3f3b240fc">
   <caption class="response-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -5846,7 +5302,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_7f05b09ec52b8b9481cb43ce6388754b" class="body__content" >
+    <div id="body_04f78b8b9be6b4b9742c38e5015cc583" class="body__content" >
     <div class="body__content">
 
 
@@ -5875,7 +5331,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_b2386c740750f849eeb8b34cc8b591b5" class="body__content" >
+    <div id="body_8e13492bbb8b485ecb0f3c09774586c5" class="body__content" >
     <div class="body__content">
 
 
@@ -6019,7 +5475,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="request__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_30b0f574cb81c438e25b9eb69c85b478applicationjson" class="body__content" >
+    <div id="body_f84be905cc7359b8036b5b421e8b874capplicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -6037,13 +5493,13 @@ string<span class="badge badge--warn">Required</span></td>
   </thead>
   <tbody>
     <tr class="request-body__parameter request-body__array-type-details">
-      <th scope="row" aria-describedby="03402fcde3eca4ff4f06c0b3cac23c4b">
+      <th scope="row" aria-describedby="4344a32cbfc2f600bc30e3cad0cfe4cf">
 array of 
 
 string
       </th>
       <td class="request-body__parameter-attributes-examples">
-<table id="03402fcde3eca4ff4f06c0b3cac23c4b">
+<table id="4344a32cbfc2f600bc30e3cad0cfe4cf">
   <caption class="request-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -6095,7 +5551,7 @@ string
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_7b65e887bc8425eb4004359b31cfcb89applicationjson" class="body__content" >
+    <div id="body_8c4b8403cb7f95592eb58c60e8713bb4applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -6410,7 +5866,7 @@ integer<span class="badge">Optional</span></td>
     <span class="response__mimetype">application/json</span></div>
 </div>
 
-    <div id="body_e42975f4413bcce03868bcb7980558bbapplicationjson" class="body__content" >
+    <div id="body_74b38bc0b8968943be5247c8b15ce5f0applicationjson" class="body__content" >
     <div class="body__content">
 
 
@@ -6428,7 +5884,7 @@ integer<span class="badge">Optional</span></td>
   </thead>
   <tbody>
     <tr class="response-body__parameter response-body__array-type-details">
-      <th scope="row" aria-describedby="fffdec23344bcc63ec0003ac4fc0b42a">
+      <th scope="row" aria-describedby="afde04f0c34c0242363c4fbeccfc3ab0">
 array of 
 
 
@@ -6442,7 +5898,7 @@ array of
 
       </th>
       <td class="response-body__parameter-attributes-examples">
-<table id="fffdec23344bcc63ec0003ac4fc0b42a">
+<table id="afde04f0c34c0242363c4fbeccfc3ab0">
   <caption class="response-body-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -6646,7 +6102,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_70be850bf1344bc8278cbc4e8995b563" class="body__content" >
+    <div id="body_8b5814c774846e85e233bfb059c0bcb9" class="body__content" >
     <div class="body__content">
 
 
@@ -6675,7 +6131,7 @@ string<span class="badge badge--warn">Required</span></td>
     <span class="response__mimetype">*/*</span></div>
 </div>
 
-    <div id="body_8c25b36b3804b574c85be981c074f9eb" class="body__content" >
+    <div id="body_3bb819864c85495f577e348c0be20cbb" class="body__content" >
     <div class="body__content">
 
 
@@ -6787,14 +6243,14 @@ string<span class="badge badge--warn">Required</span></td>
       
 
 <tr class="data-type__parameter">
-  <th scope="row" aria-describedby="fd60194b0be285a0f29cd30b84fd8112">userIds</th>
+  <th scope="row" aria-describedby="fb818ebd8342dd2f00c1f9014a9025b6">userIds</th>
   <td></td>
   <td class="data-type__parameter-type">
   array of 
 
 string<span class="badge">Optional</span></td>
   <td class="data-type__parameter-attributes-examples">
-<table id="fd60194b0be285a0f29cd30b84fd8112">
+<table id="fb818ebd8342dd2f00c1f9014a9025b6">
   <caption class="data-type-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -6910,7 +6366,7 @@ integer<span class="badge">Optional</span></td>
       
 
 <tr class="data-type__parameter">
-  <th scope="row" aria-describedby="611b9808d424105ff9b30ebcfad0822d">content</th>
+  <th scope="row" aria-describedby="238d24120c0f6fabf54d819e9bdb1008">content</th>
   <td></td>
   <td class="data-type__parameter-type">
   array of 
@@ -6925,7 +6381,7 @@ integer<span class="badge">Optional</span></td>
 <div class="tooltip-wrapper"></div>
 <span class="badge">Optional</span></td>
   <td class="data-type__parameter-attributes-examples">
-<table id="611b9808d424105ff9b30ebcfad0822d">
+<table id="238d24120c0f6fabf54d819e9bdb1008">
   <caption class="data-type-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -7054,7 +6510,7 @@ integer<span class="badge">Optional</span></td>
       
 
 <tr class="data-type__parameter">
-  <th scope="row" aria-describedby="d9bf621e8082f1bfc0ad4015b328d049">content</th>
+  <th scope="row" aria-describedby="01df458492d8dab0811bbc292f6f0e03">content</th>
   <td></td>
   <td class="data-type__parameter-type">
   array of 
@@ -7069,7 +6525,7 @@ integer<span class="badge">Optional</span></td>
 <div class="tooltip-wrapper"></div>
 <span class="badge">Optional</span></td>
   <td class="data-type__parameter-attributes-examples">
-<table id="d9bf621e8082f1bfc0ad4015b328d049">
+<table id="01df458492d8dab0811bbc292f6f0e03">
   <caption class="data-type-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -7237,7 +6693,7 @@ boolean<span class="badge">Optional</span></td>
       
 
 <tr class="data-type__parameter">
-  <th scope="row" aria-describedby="4f93f2884815201fc629a1bdb0e0db0d">content</th>
+  <th scope="row" aria-describedby="f2249ec8b39fd0d0db0a81b1f1245086">content</th>
   <td></td>
   <td class="data-type__parameter-type">
   array of 
@@ -7252,7 +6708,7 @@ boolean<span class="badge">Optional</span></td>
 <div class="tooltip-wrapper"></div>
 <span class="badge">Optional</span></td>
   <td class="data-type__parameter-attributes-examples">
-<table id="4f93f2884815201fc629a1bdb0e0db0d">
+<table id="f2249ec8b39fd0d0db0a81b1f1245086">
   <caption class="data-type-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -7441,14 +6897,14 @@ string<span class="badge">Optional</span></td>
       
 
 <tr class="data-type__parameter">
-  <th scope="row" aria-describedby="cbe50fd29bd808f1df1a431269084b20">permissions</th>
+  <th scope="row" aria-describedby="dcaef2068120021fb98593b4401f8dbd">permissions</th>
   <td></td>
   <td class="data-type__parameter-type">
   array of 
 
 string<span class="badge">Optional</span></td>
   <td class="data-type__parameter-attributes-examples">
-<table id="cbe50fd29bd808f1df1a431269084b20">
+<table id="dcaef2068120021fb98593b4401f8dbd">
   <caption class="data-type-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -7577,14 +7033,14 @@ string<span class="badge">Optional</span></td>
       
 
 <tr class="data-type__parameter">
-  <th scope="row" aria-describedby="5f1dae0d3182dc20f08946b2b9084fb1">roleIds</th>
+  <th scope="row" aria-describedby="2b006d4c020f91dde2a83b198f5b18f4">roleIds</th>
   <td></td>
   <td class="data-type__parameter-type">
   array of 
 
 string<span class="badge">Optional</span></td>
   <td class="data-type__parameter-attributes-examples">
-<table id="5f1dae0d3182dc20f08946b2b9084fb1">
+<table id="2b006d4c020f91dde2a83b198f5b18f4">
   <caption class="data-type-title sr-only">Datatype details</caption>
   <thead class="sr-only">
     <tr>
@@ -7681,6 +7137,569 @@ string<span class="badge">Optional</span></td>
 
 </div>
 	</div>
+</section>
+<hr class="separator"/>
+    <section aria-labelledby="section_group">
+      <h2 id="section_group">Group</h2>
+  
+
+<section id="text_groups_anchor" aria-labelledby="text_groups" class="definition">
+<h3 id="text_groups" >Groups</h3>
+<div class="wysiwyg">What is a group ? Well let&rsquo;s see</div></section>
+
+
+
+
+<section id="operation_retrieve-filtered-list-of-groups-updated_anchor" class="operation" aria-labelledby="operation_retrieve-filtered-list-of-groups-updated">
+	<div class="operation__content">
+        <h3 id="operation_retrieve-filtered-list-of-groups-updated">Retrieve filtered list of groups (updated)</h3>
+        <span class="operation--get operation--default">GET</span> <span class="operation__url">/v1/management/groups</span>
+		<div class="definition__security definition">
+			<h4>Security</h4>
+	      	<div>
+			
+
+<ul class="operation-security">
+
+<li class="operation-security__type"><a href="#securityscheme_bearer">Bearer</a>
+			</li>
+		</ul>
+</div>
+	    </div>
+        <div class="definition__content definition">
+			<div>
+				<h4>Request</h4>
+		
+
+
+
+<table>
+  <caption class="request__query-parameters">Query parameters</caption><thead class="sr-only">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">Attributes and examples</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+      
+
+
+<tr class="request__parameter">
+	<th scope="row">nameFilter</th>
+	<td class="wysiwyg">nameFilter</td>
+	<td class="request__parameter-type">
+
+
+string<span class="badge">Optional</span></td>
+	<td class="request__parameter-attributes-examples"></td>
+</tr>
+
+      
+
+
+<tr class="request__parameter">
+	<th scope="row">page</th>
+	<td class="wysiwyg"></td>
+	<td class="request__parameter-type">
+
+
+integer<span class="badge">Optional</span></td>
+	<td class="request__parameter-attributes-examples"><div class="request__parameter-attribute-example"><span class="metadata__label">Default</span><span class="badge">1</span></div><div class="request__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div><div class="request__parameter-attribute-example">
+	<span class="metadata__label">Example</span><span class="badge">1</span></div>
+</td>
+</tr>
+
+      
+
+
+<tr class="request__parameter">
+	<th scope="row">size</th>
+	<td class="wysiwyg">This is a size</td>
+	<td class="request__parameter-type">
+
+
+integer<span class="badge">Optional</span></td>
+	<td class="request__parameter-attributes-examples"><div class="request__parameter-attribute-example"><span class="metadata__label">Default</span><span class="badge">50</span></div><div class="request__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div><div class="request__parameter-attribute-example">
+	<span class="metadata__label">Example</span><span class="badge">50</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+		
+
+</div>
+		<div class="definition__content definition">
+			<h4>Response</h4>
+		
+		
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--2xx">200</span>Status 200</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Groups successfully retrieved</div>
+
+<table>
+  <caption class="response__headers">Headers</caption><thead class="sr-only">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">Attributes and examples</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">total-elements</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+integer<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
+</tr>
+
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">page-total-elements</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+integer<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
+</tr>
+
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">page-first</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+boolean<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"></td>
+</tr>
+
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">total-pages</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+integer<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
+</tr>
+
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">page-last</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+boolean<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"></td>
+</tr>
+
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">page-number</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+integer<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"><div class="response__parameter-attribute-example"><span class="metadata__label">Format</span><span class="badge">INT32</span></div></td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="response__content">
+    <span class="response__body">Body</span>
+    <div class="dropdown">
+    <span class="response__mimetype">application/json</span></div>
+</div>
+
+    <div id="body_5c01847cb3fb8789824e63ec9b50bb45applicationjson" class="body__content" >
+    <div class="body__content">
+
+
+
+
+<table>
+  <caption class="data-type-title sr-only">&lt;no value&gt; details</caption>
+  <thead class="sr-only">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">Attributes and examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="response-body__parameter response-body__array-type-details">
+      <th scope="row" aria-describedby="f04c0afc2bcf3043decc0e4463a2bfc3">
+array of 
+
+
+
+<a href="#type_group">Group</a>
+<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
+	<span class="sr-only">Group details</span>
+	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
+</button>
+<div class="tooltip-wrapper"></div>
+
+      </th>
+      <td class="response-body__parameter-attributes-examples">
+<table id="f04c0afc2bcf3043decc0e4463a2bfc3">
+  <caption class="response-body-title sr-only">Datatype details</caption>
+  <thead class="sr-only">
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Attributes and examples</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr class="response-body__parameter response-body__array-first-type">
+      <th scope="row">array</th>
+      <td></td>
+      <td class="response-body__parameter-attributes-examples">
+  
+    </td>
+    </tr>
+<tr class="response-body__parameter array-parameter--description">
+      <th scope="row">
+      Group</th>
+      <td></td>
+      <td class="response-body__parameter-attributes-examples"></td>
+    </tr>
+  </tbody>
+</table>
+      </td>
+      <td colspan="2"></td>
+    </tr>
+</tbody>
+</table>
+</div>
+        </div>
+    </details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">400</span>Status 400</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Invalid request URI</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">401</span>Status 401</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Indicates that the system failed to authenticate the user. Either the Authorization header was forgotten or the provided token is incorrect</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">403</span>Status 403</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">The system failed to authorize the user. It indicates that the provided token is recognized but does not have the rights to perform the action. In that case, a security administrator must be contacted to be granted the proper rights.</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">429</span>Status 429</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers.</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--5xx">500</span>Status 500</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Internal server error</div>
+
+
+
+</details>
+</div>
+</div>
+	</div>
+	<div class="operation__content-info operation__content-info--odd">
+		
+
+<button type="button" class="try-in-tester btn btn--primary btn-as-link">Try in API Tester</button>
+</div>
+</section>
+
+
+<section id="operation_register-a-new-group_anchor" class="operation" aria-labelledby="operation_register-a-new-group">
+	<div class="operation__content">
+        <h3 id="operation_register-a-new-group">Register a new group</h3>
+        <span class="operation--post operation--default">POST</span> <span class="operation__url">/v1/management/groups</span>
+		<div class="definition__security definition">
+			<h4>Security</h4>
+	      	<div>
+			
+
+<ul class="operation-security">
+
+<li class="operation-security__type"><a href="#securityscheme_bearer">Bearer</a>
+			</li>
+		</ul>
+</div>
+	    </div>
+        <div class="definition__content definition">
+			<div>
+				<h4>Request</h4>
+		
+
+
+
+
+
+</div>
+		
+
+<div class="request__content">
+    <span class="request__body">Body</span>
+    <div class="dropdown">
+    <span class="request__mimetype">application/json</span></div>
+</div>
+
+    <div id="body_8eeb885f340b3bc56489109477b5b2ccapplicationjson" class="body__content" >
+    <div class="body__content">
+
+
+
+
+<a href="#type_group">Group</a>
+<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
+	<span class="sr-only">Group details</span>
+	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
+</button>
+<div class="tooltip-wrapper"></div>
+</div>
+        </div>
+    </div>
+		<div class="definition__content definition">
+			<h4>Response</h4>
+		
+		
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--2xx">200</span>Status 200</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">OK</div>
+
+
+
+<div class="response__content">
+    <span class="response__body">Body</span>
+    <div class="dropdown">
+    <span class="response__mimetype">application/json</span></div>
+</div>
+
+    <div id="body_b545871cbc500492e94cb38be886b37fapplicationjson" class="body__content" >
+    <div class="body__content">
+
+
+
+
+<a href="#type_group">Group</a>
+<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
+	<span class="sr-only">Group details</span>
+	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
+</button>
+<div class="tooltip-wrapper"></div>
+</div>
+        </div>
+    </details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--2xx">201</span>Status 201</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">New group successfully registered</div>
+
+<table>
+  <caption class="response__headers">Headers</caption><thead class="sr-only">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">Attributes and examples</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+      
+
+
+<tr class="response__parameter">
+	<th scope="row">Location</th>
+	<td class="wysiwyg"></td>
+	<td class="response__parameter-type">
+
+
+string<span class="badge">Optional</span></td>
+	<td class="response__parameter-attributes-examples"></td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="response__content">
+    <span class="response__body">Body</span>
+    <div class="dropdown">
+    <span class="response__mimetype">application/json</span></div>
+</div>
+
+    <div id="body_4cbece420560bc89bbf35b8473875189applicationjson" class="body__content" >
+    <div class="body__content">
+
+
+
+
+<a href="#type_group">Group</a>
+<button type="button" class="btn--naked tooltip js-tooltip-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="tooltip_type_group">
+	<span class="sr-only">Group details</span>
+	<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><g><path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M7.88888889,6.11262338 C7.39796911,6.11262338 7,6.51059249 7,7.00151227 L7,11.4459567 C7,11.9368765 7.39796911,12.3348456 7.88888889,12.3348456 C8.37980867,12.3348456 8.77777778,11.9368765 8.77777778,11.4459567 L8.77777778,7.00151227 C8.77777778,6.51059249 8.37980867,6.11262338 7.88888889,6.11262338 Z M7.88888889,3.44293218 C7.39796911,3.44293218 7,3.84090129 7,4.33182107 C7,4.82274084 7.39796911,5.22070996 7.88888889,5.22070996 C8.37980867,5.22070996 8.77777778,4.82274084 8.77777778,4.33182107 C8.77777778,3.84090129 8.37980867,3.44293218 7.88888889,3.44293218 Z"></path></g></svg>
+</button>
+<div class="tooltip-wrapper"></div>
+</div>
+        </div>
+    </details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">400</span>Status 400</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Invalid request body. The message will vary depending on the cause. E.g. at least one user in the list provided cannot be found</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">401</span>Status 401</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Indicates that the system failed to authenticate the user. Either the Authorization header was forgotten or the provided token is incorrect</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">403</span>Status 403</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">The system failed to authorize the user. It indicates that the provided token is recognized but does not have the rights to perform the action. In that case, a security administrator must be contacted to be granted the proper rights.</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">409</span>Status 409</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Group with the same name already exists</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--4xx">429</span>Status 429</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers.</div>
+
+
+
+</details>
+</div>
+
+			
+
+<div class="response">
+	<details class="response__detail">
+		<summary class="response__type"><span><span class="badge badge--5xx">500</span>Status 500</span><svg viewBox="0 0 16 16" aria-hidden="true" class="response__type--icon"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z"></path></svg></summary>
+		<div class="response-description wysiwyg">Internal server error</div>
+
+
+
+</details>
+</div>
+</div>
+	</div>
+	<div class="operation__content-info operation__content-info--odd">
+		
+
+<button type="button" class="try-in-tester btn btn--primary btn-as-link">Try in API Tester</button>
+</div>
+</section>
 </section>
 <span class="back-to-top-wrapper"><a class="back-to-top" href="#"><span class="sr-only">back to top</span>↑</a></span>
 </main>

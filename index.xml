@@ -25,6 +25,15 @@
     
     <item>
       <title></title>
+      <link>/apis/user-management/1.1.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/apis/user-management/1.1.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/en/docs/tutorials/deploying-api-def-to-aws-api-gateway/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -40,18 +49,18 @@ The following procedures use AWS CLI, but you can also use the AWS API Gateway R
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/en/docs/tutorials/deploying-api-def-to-azure-api-management/</guid>
-      <description>Deploying an API definition to Azure API Management This example explains how to import a new API definition or update an existing one in Azure API Management from Talend Cloud API Designer.
+      <description>Deployingggg an API definition to Azure API Management This example explains how to import a new API definition or update an existing one in Azure API Management from Talend Cloud API Designer.
 To do this, you first have to fetch your API from Talend Cloud, then you need to deploy it to Azure API Management using a command line script or a CI/CD pipeline.
 The following procedures use Microsoft PowerShell, but you can also use the Azure API Management REST API.</description>
     </item>
     
     <item>
-      <title>Getting started</title>
-      <link>/getting-started/</link>
+      <title>Release Notes</title>
+      <link>/release-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/</guid>
-      <description>Getting started Let&amp;rsquo;s start requesting APIs!</description>
+      <guid>/release-notes/</guid>
+      <description>Release Notes Latest changes available for Talend Cloud APIs!</description>
     </item>
     
     <item>
@@ -63,6 +72,15 @@ The following procedures use Microsoft PowerShell, but you can also use the Azur
       <description>Automating Remote Engine creation Manage engine clusters, create Remote Engines and make them ready to run by pairing them quickly.
 Generating a Personal Access Token Use Personal Access Tokens to authenticate to Talend Cloud APIs or to connect Talend Studio to Talend Cloud. You generate these access tokens from Talend Cloud in the form of JSON Web Tokens (JWT).
 Access Tokens are personal and the permissions they grant are synchronized with the user&amp;rsquo;s permissions, at any time.</description>
+    </item>
+    
+    <item>
+      <title>Use cases</title>
+      <link>/use-cases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/use-cases/</guid>
+      <description>Use cases Browse APIs and tutorials depending on your use cases.</description>
     </item>
     
   </channel>

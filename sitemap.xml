@@ -19,6 +19,10 @@
   </url>
   
   <url>
+    <loc>/apis/user-management/1.1.0/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/api-services-deployment/</loc>
   </url>
   
@@ -43,11 +47,11 @@
   </url>
   
   <url>
-    <loc>/getting-started/</loc>
+    <loc>/categories/orchestration-deployment/</loc>
   </url>
   
   <url>
-    <loc>/categories/orchestration-deployment/</loc>
+    <loc>/release-notes/</loc>
   </url>
   
   <url>
@@ -60,6 +64,10 @@
   
   <url>
     <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-cases/</loc>
   </url>
   
 </urlset>
