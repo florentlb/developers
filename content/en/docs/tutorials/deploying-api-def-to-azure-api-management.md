@@ -7,7 +7,7 @@ description: Use the Talend Cloud API Designer public API to automatically updat
 linkTitle: "Deploy API def to Azure"
 ---
 
-# Deploying an API definition to Azure API Management
+# Deployingggg an API definition to Azure API Management
 
 This example explains how to import a new API definition or update an existing one in Azure API Management from Talend Cloud API Designer.
 
